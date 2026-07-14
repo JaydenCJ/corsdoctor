@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" font-family="Menlo, Consolas, monospace" font-size="13">
+  <rect width="760" height="480" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="380" y="27" fill="#8b949e" text-anchor="middle" font-size="12">corsdoctor — why did this CORS request fail?</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="60"><tspan fill="#7ee787">$</tspan> corsdoctor check capture.json</text>
+    <text x="24" y="88"><tspan fill="#79c0ff">corsdoctor</tspan> — PUT https://api.example.test/v1/items/42</text>
+    <text x="24" y="108" fill="#8b949e">  origin       https://app.example.test</text>
+    <text x="24" y="126" fill="#8b949e">  credentials  include · class  cross-origin → preflight required</text>
+    <text x="24" y="156" fill="#d2a8ff">request classification</text>
+    <text x="24" y="176">  <tspan fill="#f778ba">✗</tspan> method PUT is not CORS-safelisted (GET, HEAD, POST)</text>
+    <text x="24" y="194">  <tspan fill="#f778ba">✗</tspan> content-type: application/json — essence not form-safelisted</text>
+    <text x="24" y="212">  <tspan fill="#f778ba">✗</tspan> x-api-key — not on the CORS safelist</text>
+    <text x="24" y="240" fill="#d2a8ff">preflight response</text>
+    <text x="24" y="260">  <tspan fill="#7ee787">✓</tspan> Access-Control-Allow-Origin matches the request origin</text>
+    <text x="24" y="278">  <tspan fill="#7ee787">✓</tspan> status 204 · <tspan fill="#7ee787">✓</tspan> Access-Control-Allow-Methods covers PUT</text>
+    <text x="24" y="296">  <tspan fill="#f778ba">✗</tspan> Access-Control-Allow-Headers covers every unsafe header</text>
+    <text x="24" y="314" fill="#8b949e">      not covered by Access-Control-Allow-Headers (content-type): x-api-key</text>
+    <text x="24" y="344"><tspan fill="#8b949e">verdict</tspan>  <tspan fill="#f778ba" font-weight="bold">BLOCKED at preflight.allow-headers</tspan></text>
+    <text x="24" y="374" fill="#d2a8ff">browser console (Chrome-style)</text>
+    <text x="24" y="392" fill="#8b949e">  … blocked by CORS policy: Request header field x-api-key is not</text>
+    <text x="24" y="410" fill="#8b949e">  allowed by Access-Control-Allow-Headers in preflight response.</text>
+    <text x="24" y="440"><tspan fill="#8b949e">fix</tspan>  <tspan fill="#7ee787">• add x-api-key to Access-Control-Allow-Headers in the preflight response</tspan></text>
+  </g>
+</svg>
